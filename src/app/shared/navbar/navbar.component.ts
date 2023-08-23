@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
@@ -9,12 +9,18 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    @Input() navItems: any[];
 
+   public logoModel={
+        url:"../../../assets/img/bbca-logo.png",
+        alt:"BBCA"
+    }
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        console.log(this.navItems)
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }

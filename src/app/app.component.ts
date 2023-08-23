@@ -13,7 +13,7 @@ import { filter, Subscription } from 'rxjs';
 export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
-
+     public navItems:any[]=[]
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
@@ -48,7 +48,61 @@ export class AppComponent implements OnInit {
 
         }
 
+
+        this.populateNavItem();
+
     }
+
+populateNavItem=()=>{
+    this.navItems = [
+    { 
+      id:1,
+      iconClass:"",
+      name:"Home",
+      url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:2,
+        iconClass:"",
+        name:"About Us",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:3,
+        iconClass:"",
+        name:"Our Services",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:4,
+        iconClass:"",
+        name:"Kickstart",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:5,
+        iconClass:"",
+        name:"Gallery",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:6,
+        iconClass:"",
+        name:"Our Team",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+    { 
+        id:7,
+        iconClass:"",
+        name:"Contact",
+        url:"http://pk2-angular.creative-tim.com/documentation/tutorial"
+    },
+
+
+]
+
+}
+
     removeFooter() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice( 1 );
