@@ -5,7 +5,8 @@
             <h1>{{model.headTitle}}</h1>
             <h3>{{model.subTitle}}</h3>
             <br />
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</a>
+            <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</a> -->
+            <button type="button" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>Watch video</button>
             <button type="button" class="btn btn-outline-neutral btn-round">Become a Member</button>
         </div>
     </div>
@@ -14,13 +15,28 @@
     <div class="section text-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mr-auto ml-auto">
-                <h2 class="title">Catering for Bangladeshi caterers</h2>
-                <h5 class="description">We are an industry body set up to represent the best interests of the Bangladeshi-owned and run restaurants, takeaways and allied services providers to the catering sector.</h5>
+            <div class="col-md-6 mr-auto ml-auto">
+                <h2 class="title">{{model.secondaryHeadTitle}}</h2>
+                <h5 class="description">{{model.secondarySubTitle}}</h5>
                 <br>
                 <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
             </div>
+            <div class="col-md-6 mr-auto ml-auto">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide *ngFor="let item of carouselList">
+                            <img src="{{item.url}}" alt="{{item.caption}}">
+                            <div class="carousel-caption">
+                                <p>{{item.caption}}</p>
+                            </div>
+                        </ng-template>
+                   
+                    </ngb-carousel>
+                </div>
+            </div>
+
         </div>
+     
         <br/><br/>
         <div class="row">
             <div class="col-md-3">
